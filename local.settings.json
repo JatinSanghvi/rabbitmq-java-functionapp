@@ -1,0 +1,10 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true;",
+        "FUNCTIONS_WORKER_RUNTIME": "java",
+        "RabbitMqConnectionString": "amqp://guest:guest@localhost:5672/%2f",
+        "RabbitMqInQueueName": "inputQueue",
+        "RabbitMqOutQueueName": "outputQueue"
+    }
+}
