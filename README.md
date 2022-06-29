@@ -33,17 +33,19 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
     > docker run --interactive --tty --rm --name rabbitmq --publish 5672:5672 --publish 15672:15672 rabbitmq:3-management
     ```
 
-2. Login to http://localhost:15672. with `guest/guest` as username/password. Open page http://localhost:15672/#/queues. Add queues `inputQueue` and `outputQueue`. Use default options.
+2. Login to http://localhost:15672. with `guest/guest` as username/password.
 
-3. In another console, start this Function App locally.
+3. Open page http://localhost:15672/#/queues. Add queues `inputQueue` and `outputQueue`. Use default options.
+
+4. In another console, start this Function App locally.
 
     ```console
     > ./mvnw clean package azure-functions:run
     ```
 
-4. Open page http://localhost:15672/#/queues/%2F/inputQueue and publish message `World` to queue.
+5. Open page http://localhost:15672/#/queues/%2F/inputQueue and publish message `World` to queue.
 
-5. Verify that the event shows up in the Function App logs.
+6. Verify that the event shows up in the Function App logs.
 
     ```log
     [2022-02-26T04:54:35.845Z] Executing 'Functions.RabbitMQExample' (Reason='RabbitMQ message detected from queue: inputQueue at 2022-02-26 10:24:35', Id=910ba874-75a4-4b59-aa76-ed76b66ee24b)
@@ -52,6 +54,6 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
     [2022-02-26T04:54:35.880Z] Executed 'Functions.RabbitMQExample' (Succeeded, Id=910ba874-75a4-4b59-aa76-ed76b66ee24b, Duration=36ms)
     ```
 
-6. Open page http://localhost:15672/#/queues/%2F/outputQueue and get the message from queue. The payload should be `Hello, World.`.
+7. Open page http://localhost:15672/#/queues/%2F/outputQueue and get the message from queue. The payload should be `Hello, World.`.
 
-7. Stop the function app and stop/remove the Docker container by pressing `Ctrl+C` in both console windows.
+8. Stop the function app and stop/remove the Docker container by pressing `Ctrl+C` in both console windows.
